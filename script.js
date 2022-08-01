@@ -28,16 +28,16 @@ function playGame(playerSelect, computerSelect) {
 }
 
 
-function game() {
+function getGame() {
     for (let i = 0; i < 5; i++) {
         const playSelect = prompt("Make your choice")
         const compSelect = getComputerChoice(play)
         playGame(playSelect, compSelect)
     }
 }
-game()
+getGame()
 
-function result() {
+function getResult() {
     if (playerResult === computerResult) {
         console.log("It's a tie")
     }
@@ -48,4 +48,4 @@ function result() {
         console.log("You win")
     }
 }
-result()
+getResult()
