@@ -1,5 +1,4 @@
 
-
 const winCondition = {
     "scissor": "paper", //Scissor beats paper
     "paper": "rock", //Paper beats rock
@@ -8,35 +7,45 @@ const winCondition = {
 const play = ["rock", "paper", "scissor"]
 const getComputerChoice = (choice) => choice[Math.floor(Math.random()*choice.length)]
 
-// function getComputerChoice(choice) {
-//     let random = choice[Math.floor(Math.random()*choice.length)]
-//     console.log(random)
-// }
 
-
+let playerResult = 0
+let computerResult = 0
 function playGame(playerSelect, computerSelect) {
     if (playerSelect === computerSelect) {
         console.log("You chose:", playerSelect, "and the computer chose:",
         computerSelect)
-        return "The result is a tie!";
     }
     else if (winCondition[playerSelect] === computerSelect) {
         console.log("You chose:", playerSelect, "and the computer chose:",
         computerSelect)
-        return "You win!";
+        return playerResult += 1
     }
     else {
         console.log("You chose:", playerSelect, "and the computer chose:",
         computerSelect)
-        return "Computer wins!";//"Computer wins")
+        return computerResult += 1
     }
 }
 
 
-const playSelect = prompt("Make your choice")
-const compSelect = getComputerChoice(play)
-//console.log(playGame(playSelect, compSelect))
-
 function game() {
-    playGame(playSelect, compSelect)
+    for (let i = 0; i < 5; i++) {
+        const playSelect = prompt("Make your choice")
+        const compSelect = getComputerChoice(play)
+        playGame(playSelect, compSelect)
+    }
 }
+game()
+
+function result() {
+    if (playerResult === computerResult) {
+        console.log("It's a tie")
+    }
+    else if (playerResult < computerResult) {
+        console.log("Computer wins")
+    }
+    else {
+        console.log("You win")
+    }
+}
+result()
