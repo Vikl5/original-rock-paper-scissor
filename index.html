@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>Another RPS game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../dist/output.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .inactive {
+            pointer-events: none;
+            opacity: 0.2;
+            transition: all 1s ease-in-out;
+          }
+        }
+    </style>
 </head>
-<body>
+<body class=" bg-gray-800">
+    <div class="bg-slate-700 flex flex-row justify-center">
+        <h2 class="text-3xl text-white font-bold my-6">Let's play a game of Rock Paper Scissor</h2>
+    </div>
+    <div class="flex my-6 space-x-12 justify-center mt-20" id="container">
+        <button class="w-32 h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" id="rock">rock</button>
+        <button class="w-32 h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" id="paper">paper</button>
+        <button class="w-32 h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" id="scissor">scissor</button>
+    </div>
+    <div class="flex justify-center text-1xl text-white mt-5" id="results"></div>
+    <br>
+    <div class="flex flex-row justify-center space-x-12 mt-10">
+        <h2 class="font-extrabold text-4xl text-blue-500">Player score:</h2>
+        <h2 class="font-extrabold text-4xl text-blue-500">Computer Score:</h2>
+    </div>
+    <div class="flex flex-row justify-center space-x-40 mt-10">
+        <p class="text-2xl text-white" id="playerScore">0</p>
+        <br>
+        <p class="text-2xl text-white" id="computerScore">0</p>
+    </div>
     
 </body>
 </html>
